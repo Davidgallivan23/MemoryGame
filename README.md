@@ -35,7 +35,7 @@
  * I used some CSS grid and some CSS flexbox. 
  * I did not use any 3rd party libraries, even the winner modal was done in pure HTML, CSS and javascript
  * Answers to the questions in the instructions
- ** Idea workflow
+ .. Idea workflow
  *** I followed a scrum style work flow.  
  *** I create "stories" added them to a board with "To-do", "INW" and "Done"
  *** This allowed me to layout all the work I needed to do, UI, Code, system set up, file layout, GIT etc.
