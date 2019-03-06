@@ -13,43 +13,63 @@
         <header class="header">Match Game 2019</header>
         <section class="game_info">
             <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                <i class="fa fa-star star-item"></i>
+                <i class="fa fa-star star-item"></i>
+                <i class="fa fa-star star-item"></i>
             </div>
             <div class="moves">0 moves</div>
-            <div class="resetbtn">
+            <div class="cancel">
                 <i class="fa fa-refresh  header_size" aria-hidden="true"></i>
             </div>
         </section>
 
         <div class="game_board">
             <div class="game_row">
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
             </div>
             <div class="game_row">
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
             </div>
             <div class="game_row">
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
             </div>
             <div class="game_row">
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
-                <div class="game_cell"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
+                <div class="game_cell hide"></div>
             </div>
         </div>
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="winner">
+                <img src="./img/winner.jpg" alt="You are a winner"  srcset="img/winner.jpg 100w, img/winner.jpg"/>
+                <p>Congratulations!!!</p>
+                <p> YOU WON! </p>
+                <div class="winning_moves">It took you 0 moves</div>
+                <div class="seconds">You finished in 0 seconds</div>
+                <div class="winning_stars">You earned 0 stars</div>
+                <div class="play_again_button">
+                    <button id="replay_btn">Play Again</button>
+                </div>
+            </div>
+        </div>
+    
+  </div>
 
     <script src="js/memoryGame.js"></script>
 </body>
