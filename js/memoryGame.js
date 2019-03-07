@@ -14,7 +14,7 @@ let stars = 3; //the number of full stars left
 let board = document.getElementsByClassName('game_board')[0];
 
 board.addEventListener('click', function(event) {
-    if (event.target.classList.contains("game_cell")) {
+    if (event.target.classList.contains('game_cell')) {
 			if(event.target.classList.contains('hide')){
 				event.target.classList.replace('hide', 'show');
 
@@ -57,41 +57,53 @@ board.addEventListener('click', function(event) {
 		initGame();
 	});
 
+	/**
+	 * @description: Handing the update of the game information
+	 * 
+	 * Access:
+	 *   moves
+	 *   stars
+	 */
 function updateGameInfo(){
 	//set clicks
-	document.getElementsByClassName('moves')[0].textContent = clicks + ' moves';
+	document.getElementsByClassName('moves')[0].textContent = `${clicks} moves`;
 
 	//set star rating
-	let starsItems = document.getElementsByClassName('star-item');
+	let stars = document.getElementsByClassName('star-item');
 	switch(clicks){
 		case 0 : 
-			for (let i = 0; i < starsItems.length; i++) 
-			starsItems[i].classList.replace('fa-star-o', 'fa-star');
+			for (let i = 0; i < stars.length; i++) 
+				stars[i].classList.replace('fa-star-o', 'fa-star');
 			stars = 3;
 			break;
 		
 		case 10 : 
-				if(starsItems.length > 2)
-				starsItems[2].classList.replace('fa-star', 'fa-star-o');
+				if(stars.length > 2)
+					stars[2].classList.replace('fa-star', 'fa-star-o');
 				stars = 2;
 				break;
 
 		case 15 : 
-			if(starsItems.length > 2){
-				starsItems[1].classList.replace('fa-star', 'fa-star-o');
-				starsItems[2].classList.replace('fa-star', 'fa-star-o');
+			if(stars.length > 2){
+				stars[1].classList.replace('fa-star', 'fa-star-o');
+				stars[2].classList.replace('fa-star', 'fa-star-o');
 			}
 			stars = 1;
 			break;
 
 		case 20:
-			for (let j = 0; j < starsItems.length; j++) 
-			starsItems[j].classList.replace('fa-star', 'fa-star-o');
+			for (let j = 0; j < stars.length; j++) 
+				stars[j].classList.replace('fa-star', 'fa-star-o');
 			stars = 0;
 			break;		
 		}
 	}
 
+/**
+ * @description: Randomize the pictures to be displayed to the user
+ * 
+ * @param {symbols} array - objects used to generate pictures to match
+ */
 function shuffle(array) {
 	let currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -106,7 +118,16 @@ function shuffle(array) {
 	return array;
 }
 
-// Initial Game
+/**
+ * @description: Sets up the parameters for the game on the initial start and 
+ * after a reset
+ * 
+ * Accesses:
+ * 	clicks
+ *  second
+ *  match
+ *  matchItem
+ */
 function initGame() {
 	  //mix up the icons
 		let items = shuffle(symbols);	
@@ -140,7 +161,12 @@ function initGame() {
 		 startTimer();
 }
 
-//remove all the object to be match so we can reset them
+/**
+ * @description: remove all the object to be match so we can reset them
+ * 
+ * @param {items} items : the randomized list of pictures
+ * @param {boardRows} boardRows : the game board that contains the game cells
+ */
 function clearBoard(items, boardRows)
 {
   for (let i = 0; i < items.length; i++) {
@@ -148,6 +174,12 @@ function clearBoard(items, boardRows)
   }
 }
 
+/**
+ * @description: handles tracking the time the user is playing the game
+ * 
+ * Accesses: 
+ *   seconds
+ */
 function startTimer() {
 	_ = setInterval(function () {
 		second = second + 1;
@@ -155,45 +187,54 @@ function startTimer() {
 }
 
 //show the winner board
+/**
+ * @description: Is called when the user has matched all the pictures.  Will 
+ * populate the UI for the game info and display the winner modal
+ * 
+ * Accesses:
+ *   seconds
+ *   clicks
+ *   stars
+ */
 function gameOver()
 {
 	// Get the modal
 	let modal = document.getElementById('myModal');
 
 	// Get the button that opens the modal
-	let btn = document.getElementById("replay_btn");
+	let btn = document.getElementById('replay_btn');
 
 	// When the user clicks on the button, open the modal 
 	btn.onclick = function() {
-		modal.style.display = "none";
+		modal.style.display = 'none';
 		initGame();	
 	};
 
 	//set the moves in the modal
-	document.getElementsByClassName('winning_moves')[0].textContent = 'It took you ' + clicks + ' moves';
+	document.getElementsByClassName('winning_moves')[0].textContent = `It took you ${clicks} moves`;
 
 	//set the elapsed timing in the modal
-	document.getElementsByClassName('seconds')[0].textContent = 'You finished in ' + second + ' seconds';
+	document.getElementsByClassName('seconds')[0].textContent = `You finished in ${second} seconds`;
 		
 	//set the elapsed timing in the modal
-	document.getElementsByClassName('winning_stars')[0].textContent = 'You earned ' + stars + ' stars';
+	document.getElementsByClassName('winning_stars')[0].textContent = `You earned ${stars} stars`;
 
 	//show the modal
-	modal.style.display = "block";
+	modal.style.display ='block';
 
 	// Get the <span> element that closes the modal
-	let span = document.getElementsByClassName("close")[0];
+	let span = document.getElementsByClassName('close')[0];
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
-		modal.style.display = "none";
+		modal.style.display = 'none';
 		initGame();
 	};
 
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 		if (event.target == modal) {
-			modal.style.display = "none";
+			modal.style.display = 'none';
 			initGame();
 		}
 	};
