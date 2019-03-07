@@ -27,7 +27,7 @@ board.addEventListener('click', function(event) {
 					matchItem.classList.replace('show', 'matched');
 					matchItem = null;
 					match++;
-					if(match === 1)
+					if(match === 8)
 					    gameOver();
 				}
 				else
@@ -62,31 +62,31 @@ function updateGameInfo(){
 	document.getElementsByClassName('moves')[0].textContent = clicks + ' moves';
 
 	//set star rating
-	let stars = document.getElementsByClassName('star-item');
+	let starsItems = document.getElementsByClassName('star-item');
 	switch(clicks){
 		case 0 : 
-			for (let i = 0; i < stars.length; i++) 
-				stars[i].classList.replace('fa-star-o', 'fa-star');
+			for (let i = 0; i < starsItems.length; i++) 
+			starsItems[i].classList.replace('fa-star-o', 'fa-star');
 			stars = 3;
 			break;
 		
 		case 10 : 
-				if(stars.length > 2)
-					stars[2].classList.replace('fa-star', 'fa-star-o');
+				if(starsItems.length > 2)
+				starsItems[2].classList.replace('fa-star', 'fa-star-o');
 				stars = 2;
 				break;
 
 		case 15 : 
-			if(stars.length > 2){
-				stars[1].classList.replace('fa-star', 'fa-star-o');
-				stars[2].classList.replace('fa-star', 'fa-star-o');
+			if(starsItems.length > 2){
+				starsItems[1].classList.replace('fa-star', 'fa-star-o');
+				starsItems[2].classList.replace('fa-star', 'fa-star-o');
 			}
 			stars = 1;
 			break;
 
 		case 20:
-			for (let j = 0; j < stars.length; j++) 
-				stars[j].classList.replace('fa-star', 'fa-star-o');
+			for (let j = 0; j < starsItems.length; j++) 
+			starsItems[j].classList.replace('fa-star', 'fa-star-o');
 			stars = 0;
 			break;		
 		}

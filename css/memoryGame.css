@@ -406,17 +406,18 @@ body {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  min-width: 50%;
+  max-width: 25%;
+  background-color: #fefefe;
+  padding: 20px 50px 20px 20px;
 }
 
 /* The Close Button */
@@ -462,5 +463,9 @@ button {
 
 .play_again_button{
   margin: 25px;
+}
+
+.seconds{
+  width: 250px;
 }
 
